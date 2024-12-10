@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('loan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('books_id');
+            $table->unsignedBigInteger('books_id')->index();
+            $table->unsignedBigInteger('student_id')->index();
             $table->date('data_emprestimo');
             $table->date('data_devolucao');
             $table->boolean('status');
             $table->timestamps();
 
-            $table->foreign('student_id')->references('id')->on('student');
-            $table->foreign('books_id')->references('id')->on('books');
+            $table->foreign('books_id')->references('id')->on('books')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('student')->onDelete('cascade');
         });
     }
 
