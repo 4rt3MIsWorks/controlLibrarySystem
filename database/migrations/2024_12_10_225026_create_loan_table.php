@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('books_id');
+            $table->date('data_emprestimo');
+            $table->date('data_devolucao');
+            $table->boolean('status');
             $table->timestamps();
 
             $table->foreign('student_id')->references('id')->on('student');
