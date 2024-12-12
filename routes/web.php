@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\LoanController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('autor', AuthorController::class);
+Route::resource('livros', BooksController::class);
+Route::resource('alunos', StudentController::class);
+Route::resource('emprestimos', LoanController::class);
