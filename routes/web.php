@@ -25,3 +25,7 @@ Route::resource('autor', AuthorController::class);
 Route::resource('livros', BooksController::class);
 Route::resource('alunos', StudentController::class);
 Route::resource('emprestimos', LoanController::class);
+
+Route::get('teste', function () {
+    return view('layouts.layout');
+});
