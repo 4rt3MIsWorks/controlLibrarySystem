@@ -1,0 +1,41 @@
+header, .navbar{
+    background-color: #353d41;
+    border-bottom: 5px solid black;
+}
+
+#nav-container{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.logo{
+    width: 90px;
+}
+
+.navbar-brand{
+    padding: 0;
+    color: #fff;
+}
+.navbar-brand:hover{
+    color: #8d5528;
+    border-bottom: 2px solid white;
+}
+#navbar-links a{
+    color: #ffffff;
+}
+#navbar-links a:hover{
+
+    color: #8d5528;
+    border-bottom: 2px solid #ffffff;
+}
+
+.nav-link.active{
+    color: white;
+    border-bottom: solid 2px #8d5528;
+    font-weight: bold;
+}
+
+
+.navbar-expand-lg .navbar-nav .nav-link{
+    padding: 1rem .8rem;
+}
