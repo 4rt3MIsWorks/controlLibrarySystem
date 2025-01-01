@@ -10,7 +10,8 @@ class Student extends Model
     use HasFactory;
     protected $fillable = ['nome', 'matricula'];
 
-    public function books(){
-        return $this->belongsToMany(Books::class);
+
+    public function loans(){
+        return $this->belongsTo('App\Models\Loan');
     }
 }

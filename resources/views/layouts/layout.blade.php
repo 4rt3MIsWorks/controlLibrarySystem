@@ -56,7 +56,7 @@
 
                 </div>
                 <div class="btnCard">
-                    <a href="{{ route('alunos') }}">Estudantes</a>
+                    <a href="">Estudantes</a>
                 </div>
             </div>
 

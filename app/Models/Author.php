@@ -10,6 +10,9 @@ class Author extends Model
     use HasFactory;
     protected $fillable = ['nome', 'nacionalidade'];
     public function books(){
-        return $this->belongsToMany(Books::class);
+        return $this->hasMany('App\Models\Book');
+    }
+    public function loans(){
+        return $this->belongsTo('App\Models\Loan');
     }
 }
