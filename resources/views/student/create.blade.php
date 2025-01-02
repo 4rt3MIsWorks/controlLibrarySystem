@@ -1,4 +1,4 @@
-<x-layout title="Cadastro de Alunos">
+<x-layout title="Cadastro de Estudantes">
     <header class="bg-dark text-white py-4">
         <div class="container d-flex justify-content-center align-items-center">
             <h1>Biblioteca do Senhor Raimundo</h1>
@@ -10,7 +10,7 @@
             @csrf
             <div class="row">
                 <div class="col">
-                    <label for="nome" class="form-label">Nome do Autor:</label>
+                    <label for="nome" class="form-label">Nome do Estudante:</label>
                     <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite o nome do estudante neste campo">
                 </div>
                 <div class="col">

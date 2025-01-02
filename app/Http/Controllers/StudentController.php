@@ -26,8 +26,9 @@ class StudentController extends Controller {
         return to_route('alunos.index')->with('success', $message);
     }
 
-    public function destroy(Student $student) {
-        $student -> delete();
+    public function destroy($studentId) {
+        $student = Student::find($studentId);
+        $student->delete();
         $message = "O aluno $student->nome foi removido do sistema com sucesso!";
         return to_route('alunos.index')->with('success', $message);
     }
