@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthorController;
-use App\Http\Controllers\BooksController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -22,10 +23,8 @@ Route::get('/', function () {
 });
 
 Route::resource('autor', AuthorController::class);
-Route::resource('livros', BooksController::class);
+Route::resource('livros', BookController::class);
 Route::resource('alunos', StudentController::class);
 Route::resource('emprestimos', LoanController::class);
+Route::resource('biblioteca', LibraryController::class);
 
-Route::get('teste', function () {
-    return view('layouts.layout');
-});

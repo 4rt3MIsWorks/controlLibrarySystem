@@ -10,11 +10,11 @@ class Loan extends Model
     use HasFactory;
     protected $fillable = ['data_emprestimo', 'data_devolucao', 'status'];
 
-    public function students(){
-        return $this->hasMany('App\Models\Student');
+    public function student(){
+        return $this->belongsTo(Student::class);
     }
 
     public function books(){
-        return $this->hasMany('App\Models\Book');
+        return $this->belongsTo('App\Models\Book');
     }
 }
