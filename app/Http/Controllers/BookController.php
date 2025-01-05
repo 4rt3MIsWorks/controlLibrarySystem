@@ -3,83 +3,72 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class);
+    }
+
     public function index()
     {
-        //
+        $books = Book::with('authors')->get();
+        $message = session('success');
+        return view('book.index', compact('books', 'message'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+     return view('book.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        /*
+        $request -> validate
+        ([
+
+        área para o request
+
+        ]);
+        */
+
+
+        $books = Book::create($request->all());
+        $message = "O libro $books->titulo foi cadastrado com sucesso!";
+        return to_route('book.index')->with('success', $message);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function edit($isbn)//utilizei como primary key//
     {
-        //
+        return view('book.edit');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $request, Books $books)
     {
-        //
+            /*
+            $request -> validate
+            ([
+
+            área para o request
+
+            ]);
+            */
+        $books -> update($request->all());
+        $message = "O livro $books->titulo foi editado com sucesso!";
+        return to_route('book.index')->with('success', $message);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function destroy($ISBN)//utilizei como primary key//
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $books = Book::find($ISBN);
+        $books -> delete();
+        $message = "O livro $books->titulo foi removido do sistema com sucesso!";
+        return to_route('book.index')->with('success', $message);
     }
 }

@@ -32,4 +32,25 @@ class StudentController extends Controller {
         $message = "O aluno $student->nome foi removido do sistema com sucesso!";
         return to_route('alunos.index')->with('success', $message);
     }
+
+    public function edit($matricula)
+    {
+        return view('student.edit');
+    }
+
+    public function update(Request $request, Student $student)
+    {
+        /*
+        $request -> validate
+        ([
+
+        área para o request
+
+        ]);
+        */
+        $student -> update($request->all());
+        $message = "O aluno $student->nome foi editado com sucesso!";
+        return to_route('student.index')->with('success', $message);
+    }
+
 }

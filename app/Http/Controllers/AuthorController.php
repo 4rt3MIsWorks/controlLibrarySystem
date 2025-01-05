@@ -28,10 +28,31 @@ class AuthorController extends Controller {
         return to_route('autor.index')->with('success', $message);
     }
 
-    public function destroy(Author $author) {
+    public function destroy(Author $author)
+    {
         $author -> delete();
         $message = "O aluno $author->nome foi removido do sistema com sucesso!";
         return to_route('autor.index')->with('success', $message);
+    }
+
+    public function edit($nome)//primary kew do autor //
+    {
+        return view('author.edit');
+    }
+
+    public function update(Request $request, Author $author)
+    {
+        /*
+        $request -> validate
+        ([
+
+        área para o request
+
+        ]);
+        */
+        $author -> update($request->all());
+        $message = "O autor $author->nome foi editado com sucesso!";
+        return to_route('author.index')->with('success', $message);
     }
 
 }
