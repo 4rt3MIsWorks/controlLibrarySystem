@@ -13,12 +13,15 @@ class LoanController extends Controller
 
     public function index()
     {
-        $loans = Loan::with('books', 'students')->get();
-        return view('loan.index', compact('loans'));
+        $loans = Loan::with(['books', 'students']) -> get();
+        $message = session('success');
+        return view('loan.index', compact('loans', 'message'));
     }
 
     public function create()
     {
-        return view('loan.create');
+        $books = Book::where('status', 'available') -> get();
+        $students = Student::all();
+        return view('loan.create', compact('books', 'students'));
     }
 }
