@@ -1,14 +1,152 @@
-.titulo{
+.titulo {
     font-family: "Rubik", serif;
 }
-.cabecaSecao{
-    margin-top: 110px;
+
+.subTitulo {
+    font-size: 20px;
+    text-indent: 2em;
 }
-.subTitulo{
-    font-size: 25px;
+
+.cardContainer {
+    position: relative;
+}
+
+.card {
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+
+    &:hover {
+        transform: scale(1.2);
+        box-shadow: 0 10px 20px rgb(0, 0, 0);
+        z-index: 10;
+        ~.card{
+            opacity: 0.5;
+        }
+    }
+}
+
+
+.cardImg {
+    display: flex;
+    justify-content: center;
 
 }
 
-.cadastrar{
+.decoracaoBorda {
+    border: solid 5px black;
+    border-radius: 50%;
+}
+
+.cardIconAluno {
+    width: 90px;
+    padding: 5px;
+    border: solid 10px rgb(242, 161, 4);
+    border-radius: 50%;
+}
+
+.cardIconLivro {
+    width: 90px;
+    padding: 5px;
+    border: solid 10px rgb(30, 42, 71);
+    border-radius: 50%;
+}
+
+.cardIconAutor {
+    width: 90px;
+    padding: 5px;
+    border: solid 10px rgb(106, 61, 255);
+    border-radius: 50%;
+}
+
+
+.cardText {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #CFB1B8;
+    border: 5px solid black;
+    border-radius: 10px 20px;
+    text-align: justify;
+}
+
+.cardText p {
+    font-family: "Rubik", serif;
+    font-weight: bolder;
+    color: #19191B;
+    padding: 15px 15px 0px 15px;
+    font-size: 17px;
+    text-indent: 1em;
+}
+
+/*.btn {
+
+
+    text-align: center;
+
 
 }
+
+.btnAlunos {
+    color: black;
+    background-color: #b63a3a;
+    border: 3px solid black;
+
+    &:hover {
+        color: #fdfdfd;
+        background-color: #500303;
+        border: 3px solid #000000;
+
+
+    }
+}*/
+
+.btn {
+    font-weight: bolder;
+    text-align: center;
+    padding: 10px 20px; // Espaçamento adequado
+    border-radius: 5px; // Bordas arredondadas
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border 0.3s ease; // Transições suaves
+}
+
+// Botão Livro (Azul escuro)
+.btnLivros {
+    color: white;
+    background-color: #1E2A47; // Azul escuro
+    border: 3px solid #152040; // Bordas em tom mais escuro de azul
+
+    &:hover {
+        background-color: #152040; // Azul mais escuro no hover
+        border: 3px solid #1E2A47; // Bordas trocando para o tom de azul original
+        color: #000000; // Cor do texto no hover
+    }
+}
+
+// Botão Autor (Roxo vibrante)
+.btnAutores {
+    color: white;
+    background-color: #6A3DFF; // Roxo vibrante
+    border: 3px solid #5327CC; // Bordas mais escuras
+
+    &:hover {
+        background-color: #5327CC; // Roxo mais escuro no hover
+        border: 3px solid #6A3DFF; // Bordas voltando ao tom vibrante
+        color: #ffffff; // Cor do texto no hover
+
+    }
+}
+
+// Botão Estudante (Amarelo dourado)
+.btnAlunos {
+    color: black;
+    background-color: #F2A104; // Amarelo dourado
+    border: 3px solid #C87B02; // Bordas mais escuras de amarelo
+
+    &:hover {
+        background-color: #C87B02; // Amarelo mais escuro no hover
+        border: 3px solid #F2A104; // Bordas voltando ao tom dourado
+        color: #000000; // Cor do texto no hover
+
+    }
+}
+
