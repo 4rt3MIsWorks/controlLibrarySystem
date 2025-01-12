@@ -20,7 +20,7 @@
             <div class="form-box">
                 <h2>Cadastrar Livro</h2>
 
-                <form method="post" action="{{ route('alunos.store') }}">
+                <form method="post" action="{{ route('livros.store') }}">
                     @csrf
 
                     <p style="font-weight: bold">Para efetuar o cadastro de um livro, antes deve-se cadastrar o autor do mesmo*</p>
@@ -32,8 +32,8 @@
                     </div>
 
                     <div class="input">
-                        <label for="autor">Autor</label>
-                        <select id="autor" name="autor_id" required>
+                        <label for="author_id">Autor</label>
+                        <select id="author_id" name="author_id" required>
                             @foreach($authors as $author)
                                 <option value="{{ $author->id }}">{{ $author->nome }}</option>
                             @endforeach

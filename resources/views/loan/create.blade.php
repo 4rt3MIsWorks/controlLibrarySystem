@@ -20,7 +20,7 @@
             <div class="form-box">
                 <h2>Registrar Emprestimos</h2>
 
-                <form method="post" action="{{ route('alunos.store') }}">
+                <form method="post" action="{{ route('emprestimos.store') }}">
                     @csrf
 
                     <p style="font-weight: bold">Para efetuar o Registro de um emprestimo, o livro e o aluno devem estar cadastrados no sistema previamente*</p>

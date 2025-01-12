@@ -23,7 +23,7 @@ class LoanController extends Controller
     {
         $books =Book::all();
         $students = Student::all();
-        $loans = Loan::with(['book', 'student']) -> get();
+        $loans = Loan::with(['books', 'student']) -> get();
         $message = session('success');
         return view('loan.index', compact('loans', 'books', 'students', 'message'));
     }
@@ -36,24 +36,16 @@ class LoanController extends Controller
     }
 
      public function store(Request $request){
-
+        $request->merge([
+            'status' => 0,
+        ]);
         $request->validate([
-            'book_id' => 'required|exists:books,id',
-            'student_id' => 'required|exists:students,id',
             'data_emprestimo' => 'required|date',
+            'data_devolucao' => 'required|date',
         ]);
-        $loan = Loan::create([
-            'book_id' => $request->book_id,
-            'student_id' => $request->student_id,
-            'data_emprestimo' => $request->data_emprestimo,
-            'status' => 'active',
-        ]);
-         $book = Book::find($request->book_id);
-         $book->status = 'borrowed';
-         $book->save();
-
-         $message = "O empréstimo do livro {$book->titulo} foi registrado com sucesso!";
-         return to_route('emprestimos.index')->with('success', $message);
+        $loan = Loan::create($request->all());
+        $message = "O empréstimo do livro $loan->id foi registrado com sucesso!";
+        return to_route('emprestimos.index')->with('success', $message);
 
     }
     public function returnLoan($loanId){

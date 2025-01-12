@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Loan extends Model
 {
     use HasFactory;
-    protected $fillable = ['data_emprestimo', 'data_devolucao', 'status'];
+    protected $fillable = ['books_id','student_id','data_emprestimo','data_devolucao','status'];
 
     public function student(){
         return $this->belongsTo(Student::class);

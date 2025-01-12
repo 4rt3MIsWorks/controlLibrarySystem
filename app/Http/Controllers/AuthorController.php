@@ -24,17 +24,17 @@ class AuthorController extends Controller {
             'nacionalidade' => 'required|min:4|max:30'
         ]);
         $authors = Author::create($request->all());
-       // $message = "O aluno $authors->nome foi cadastrado com sucesso!";
-        return to_route('autor.index')->with('success');
+        $message = "O autor $authors->nome foi cadastrado com sucesso!";
+        return to_route('autor.index')->with($message,'success');
 
 
 
     }
 
-    public function destroy(Author $author)
-    {
-        $author -> delete();
-        $message = "O aluno $author->nome foi removido do sistema com sucesso!";
+    public function destroy($authorID) {
+        $author = Author::find($authorID);
+        $author->delete();
+        $message = "O autor $author->nome foi removido do sistema com sucesso!";
         return to_route('autor.index')->with('success', $message);
     }
 

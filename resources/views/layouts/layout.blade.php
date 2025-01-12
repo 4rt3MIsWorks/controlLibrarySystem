@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/07cf0d499c.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="conteudo">
 <div class="wrapper">
     <header>
         <div class="container " id="nav-container">
@@ -32,20 +32,18 @@
                         <a href="{{ route('listagem')  }}"
                            class="nav-item nav-link {{ (Route::current()->getName() === 'listagem' ? 'active' : '') }}"
                            id="listagem-menu">Listagem</a>
-                        <a href="{{ route('emprestimos.index')  }}"
-                           class="nav-item nav-link {{ (Route::current()->getName() === 'emprestimos.index' ? 'active' : '') }}"
-                           id="emprestimo-menu">Emprestimos</a>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-    @section('apresentacao')
-    @show
+    <div class="conteudo">
+        @section('apresentacao')
+        @show
 
-    @section('main')
-    @show
-
+        @section('main')
+        @show
+    </div>
     <footer class="footer mt-auto border-top">
         <div class="container ">
             <div class=" footert d-flex flex-wrap justify-content-between align-items-center ">

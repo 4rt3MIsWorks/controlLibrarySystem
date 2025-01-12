@@ -9,7 +9,7 @@
 @endsection
 @section('main')
     <main class="container py-5">
-        <div> id, livro_id, aluno_id, data_emprestimo, data_devolucao, status.
+        <div>
             <div class="table-container">
                 <table class="styled-table">
                     <thead>
@@ -26,13 +26,17 @@
                     @foreach($loans as $loan)
                         <tr>
                             <th scope="row">{{ $loan->id }}</th>
-                            <td>{{ $loan->students->nome}}</td>
-                            <td>{{ $loan->book->titulo}}</td>
+                            <td>{{ $loan->student->nome}}</td>
+                            <td>{{ $loan->books->titulo}}</td>
                             <td>{{ $loan->data_emprestimo}}</td>
                             <td>{{ $loan->data_devolucao}}</td>
-                            <td>{{ $loan->status}}</td>
-
-
+                            @if( $loan->status === 0 ){
+                                <td>Emprestado</td>
+                            }
+                            @else {
+                                <td>Devolvido</td>
+                            }
+                            @endif
                         </tr>
                     @endforeach
                     </tbody>

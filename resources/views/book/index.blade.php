@@ -25,12 +25,12 @@
                     @foreach($books as $book)
                         <tr>
                             <th scope="row">{{ $book->id }}</th>
-                            <td>{{ $book->titulo}}</td>
+                            <td>{{ $book->titulo }}</td>
                             <td>{{ $book->author->nome}}</td>
                             <td>{{ $book->ano_publicacao}}</td>
                             <td>
                                 <div class=" button-group">
-                                    <form method="POST" action="{{ route('autor.destroy', $book->id) }}">
+                                    <form method="POST" action="{{ route('livros.destroy', $book->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-delete">
@@ -38,7 +38,7 @@
                                         </button>
                                     </form>
 
-                                    <form method="GET" action="{{ route('autor.edit', $book->id) }}">
+                                    <form method="GET" action="{{ route('livros.edit', $book->id) }}">
                                         @csrf
                                         <button type="submit" class="btn btn-edit">
                                             <i class="fas fa-edit"></i>

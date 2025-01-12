@@ -15,8 +15,7 @@ class BookController extends Controller
         return $this->belongsTo(Author::class); //caralho de linha de filho da puta quem foi a desgraça que fez isso pqp
     }
 
-    public function index()
-    {
+    public function index() {
         $books = Book::with('author')->get();
         $message = session('success');
         return view('book.index', compact('books', 'message'));
@@ -28,21 +27,21 @@ class BookController extends Controller
      return view('book.create', compact('authors'));
     }
 
-    public function store(Request $request)
-    {
-
-
-
+    public function store(Request $request) {
+        $request -> validate([
+            'titulo' => 'required|min:4|max:30',
+            'ano_publicacao' => 'required',
+            'ISBN' => 'required'
+        ]);
         $books = Book::create($request->all());
-
         $message = "O livro $books->titulo foi cadastrado com sucesso!";
-        return to_route('book.index')->with('success', $message);
+        return to_route('livros.index')->with('success', $message);
     }
 
 
     public function edit($isbn)//utilizei como primary key//
     {
-        return view('book.edit');
+        return view('livros.edit');
     }
 
     public function update(Request $request, Books $books)
@@ -57,14 +56,14 @@ class BookController extends Controller
             */
         $books -> update($request->all());
         $message = "O livro $books->titulo foi editado com sucesso!";
-        return to_route('book.index')->with('success', $message);
+        return to_route('livros.index')->with('success', $message);
     }
 
-    public function destroy($ISBN)//utilizei como primary key//
+    public function destroy($id)//utilizei como primary key//
     {
-        $books = Book::find($ISBN);
+        $books = Book::find($id);
         $books -> delete();
         $message = "O livro $books->titulo foi removido do sistema com sucesso!";
-        return to_route('book.index')->with('success', $message);
+        return to_route('livros.index')->with('success', $message);
     }
 }

@@ -5,9 +5,11 @@
 
     <div class="container secCadastro">
         <div class="cabecaSecao">
-            <h4 class="titulo text-white ">Seção de Cadastro!</h4>
-            <p class="text-white subTitulo">Abaixo as opções:</p>
+            <h4 class="titulo text-white text-center">Seção de Cadastro</h4>
+            <h3 class="text-white subTitulo text-center">Abaixo as opções:</h3>
         </div>
+        <br>
+        <br>
         <div class=" cardContainer d-flex gap-5">
             <div class="card p-5 w-75 d-flex cadastrar aluno">
                 <div class="cardImg ">
@@ -72,7 +74,7 @@
                 </div>
                 <button class="btn align-items-center btnEmprestimos" type="button"
                         onclick="window.open('loan.create ', '_self')">
-                    Ir para Livros
+                    Ir para Empréstimos
                 </button>
             </div>
         </div>
