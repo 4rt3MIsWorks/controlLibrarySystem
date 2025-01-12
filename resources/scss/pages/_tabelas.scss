@@ -1,0 +1,77 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #4a5568;
+
+}
+
+.styled-table {
+    border-collapse: collapse;
+    font-size: 2em;
+    min-width: 800px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table thead tr {
+    background-color: #8d5528;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 24px 30px;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.styled-table tbody tr:last-of-type {
+    font-weight: bold;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.btn-cadastro {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+.btn-cadastro:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+

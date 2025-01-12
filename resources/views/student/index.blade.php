@@ -1,40 +1,57 @@
 @extends('layouts.layout')
 
+@section('apresentacao')
+    <div class="tituloC">
+        <h1 class="titulo">Bem-vindo à Página de Listagem de Alunos</h1>
+        <p class="cadastroText">Abaixo esta a lista de alunos cadastrados na biblioteca do Senhor Raimundo.</p>
+        <p class="cadastroText">Aqui voce pode deletar ou editar os dados de um aluno.</p>
+    </div>
+@endsection
 @section('main')
     <main class="container py-5">
         <div>
-            <div class="d-flex justify-content-center">
-                <a href=" {{route('alunos.create')}} " class="btn btn-primary mt-2" style="font-size:20px">Cadastrar um Novo Estudante</a>
-            </div>
-            <br>
-            <br>
-            <br>
-            <table class="table table-hover">
-                <thead>
-                <tr align="center" style="font-size:25px;" class="table-primary">
-                    <th scope="col">ID do Estudante</th>
-                    <th scope="col">Nome do Estudante</th>
-                    <th scope="col">Matricula do Estudante</th>
-                    <th scope="col">Ações</th>
-                </tr>
-                </thead>
-                <tbody align="center">
-                @foreach($students as $student)
+            <div class="table-container">
+                <table class="styled-table">
+                    <thead>
                     <tr>
-                        <th scope="row">{{ $student->id }}</th>
-                        <td>{{ $student->nome }}</td>
-                        <td>{{ $student->matricula }}</td>
-                        <td>
-                            <form method="POST" action="{{ route('alunos.destroy', $student->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                            </form>
-                        </td>
+                        <th>ID do Aluno</th>
+                        <th>Nome</th>
+                        <th>Matrícula</th>
+                        <th>Ações</th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach($students as $student)
+                        <tr>
+                            <th scope="row">{{ $student->id }}</th>
+                            <td>{{ $student->nome }}</td>
+                            <td>{{ $student->matricula }}</td>
+                            <td>
+                                <div class=" button-group">
+                                <form method="POST" action="{{ route('alunos.destroy', $student->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-delete">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+
+                                <form method="GET" action="{{ route('alunos.edit', $student->id) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="button-container">
+                <a href="{{ route('alunos.create') }}" class="btn-cadastro">Cadastrar Novo Estudante</a>
+            </div>
         </div>
     </main>
 @endsection

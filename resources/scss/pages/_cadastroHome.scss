@@ -53,6 +53,8 @@
     border-radius: 50%;
 }
 
+
+
 .cardIconAutor {
     width: 90px;
     padding: 5px;
@@ -60,6 +62,12 @@
     border-radius: 50%;
 }
 
+.cardIconEmprestimo{
+    width: 90px;
+    padding: 15px;
+    border: solid 10px rgb(87, 4, 4);
+    border-radius: 50%;
+}
 
 .cardText {
     margin-top: 15px;
@@ -79,74 +87,67 @@
     text-indent: 1em;
 }
 
-/*.btn {
 
-
-    text-align: center;
-
-
-}
-
-.btnAlunos {
-    color: black;
-    background-color: #b63a3a;
-    border: 3px solid black;
-
-    &:hover {
-        color: #fdfdfd;
-        background-color: #500303;
-        border: 3px solid #000000;
-
-
-    }
-}*/
 
 .btn {
     font-weight: bolder;
     text-align: center;
-    padding: 10px 20px; // Espaçamento adequado
-    border-radius: 5px; // Bordas arredondadas
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border 0.3s ease; // Transições suaves
+    padding: 10px 20px; //
+    border-radius: 5px; //
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-// Botão Livro (Azul escuro)
+
 .btnLivros {
     color: white;
-    background-color: #1E2A47; // Azul escuro
-    border: 3px solid #152040; // Bordas em tom mais escuro de azul
+    background-color: #1E2A47;
+    border: 3px solid #152040;
 
     &:hover {
-        background-color: #152040; // Azul mais escuro no hover
-        border: 3px solid #1E2A47; // Bordas trocando para o tom de azul original
-        color: #000000; // Cor do texto no hover
+        background-color: #152040;
+        border: 3px solid #1E2A47;
+        color: #000000;
     }
 }
 
-// Botão Autor (Roxo vibrante)
+
 .btnAutores {
     color: white;
-    background-color: #6A3DFF; // Roxo vibrante
-    border: 3px solid #5327CC; // Bordas mais escuras
+    background-color: #6A3DFF;
+    border: 3px solid #5327CC;
 
     &:hover {
-        background-color: #5327CC; // Roxo mais escuro no hover
-        border: 3px solid #6A3DFF; // Bordas voltando ao tom vibrante
-        color: #ffffff; // Cor do texto no hover
+        background-color: #5327CC;
+        border: 3px solid #6A3DFF;
+        color: #ffffff;
 
     }
 }
 
-// Botão Estudante (Amarelo dourado)
+
 .btnAlunos {
     color: black;
-    background-color: #F2A104; // Amarelo dourado
-    border: 3px solid #C87B02; // Bordas mais escuras de amarelo
+    background-color: #F2A104;
+    border: 3px solid #C87B02;
 
     &:hover {
-        background-color: #C87B02; // Amarelo mais escuro no hover
-        border: 3px solid #F2A104; // Bordas voltando ao tom dourado
-        color: #000000; // Cor do texto no hover
+        background-color: #C87B02;
+        border: 3px solid #F2A104;
+        color: #000000;
 
     }
 }
+.btnEmprestimos {
+    color: white;
+    background-color: rgb(87, 4, 4);
+    border: 3px solid #c80202;
+
+    &:hover {
+        background-color: #c80202;
+        border: 3px solid #f20404;
+        color: #000000;
+
+    }
+}
+
 

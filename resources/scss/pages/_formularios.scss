@@ -1,0 +1,102 @@
+.tituloC{
+    margin: 80px 80px;
+}
+.cadastroText{
+    color: white;
+    font-size: 20px ;
+}
+.box{
+    display: flex;
+    width: 930px;
+    margin: 0 auto;
+}
+.img-box{
+    background-color: rgba(141, 85, 40, 0.37);
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px  0 0 20px;
+}
+.img-box img{
+    width: 100%;
+}
+.form-box{
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(40px);
+    padding: 30px 40px;
+    width: 50%;
+    border-radius: 0 20px 20px 0;
+}
+
+
+.form-box form{
+    margin: 20px 0;
+}
+form .input{
+    margin-bottom: 15px;
+}
+form .input label{
+    color: #3D3D3D;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+form .input input{
+    width: 100%;
+    height: 47px;
+    background-color: rgba(255, 255, 255, 0.32);
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid transparent;
+    padding: 15px;
+    font-size: 15px;
+    color: #616161;
+    transition: all 0.4s ease;
+}
+form .input input:focus{
+    border-color: #ff008869;
+}
+form .input button{
+    width: 100%;
+    height: 47px;
+    background: #8d5528;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    margin-top: 15px;
+    color: white;
+    font-size: 16px;
+}
+
+form .input select {
+    width: 100%;
+    height: 47px;
+    background-color: rgba(255, 255, 255, 0.32);
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid transparent;
+    padding: 5px;
+    font-size: 15px;
+    color: #616161;
+    transition: all 0.4s ease;
+}
+
+
+form .input select:focus {
+    border-color: #ff008869;
+}
+
+/* Estilo para as opções dentro do select */
+form .input select option {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #616161;
+    font-size: 15px;
+    padding: 15px;
+}
+
+/* Estilo quando o select tem o foco */
+form .input select:focus option {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+

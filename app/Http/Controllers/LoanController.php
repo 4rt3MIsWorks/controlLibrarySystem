@@ -2,27 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Loan;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\Book;
 
 
 class LoanController extends Controller
 {
-    public function loans(){
+    public function student(){
+        return $this->hasMany('App\Models\Author');
+    }
+    public function book(){
         return $this->hasMany('App\Models\Author');
     }
 
     public function index()
+
     {
-        $loans = Loan::with(['books', 'students']) -> get();
+        $books =Book::all();
+        $students = Student::all();
+        $loans = Loan::with(['book', 'student']) -> get();
         $message = session('success');
-        return view('loan.index', compact('loans', 'message'));
+        return view('loan.index', compact('loans', 'books', 'students', 'message'));
     }
 
     public function create()
     {
-        return view('loan.create');
+        $books =Book::all();
+        $students = Student::all();
+        return view('loan.create', compact('books', 'students'));
     }
 
      public function store(Request $request){
@@ -41,7 +51,7 @@ class LoanController extends Controller
          $book = Book::find($request->book_id);
          $book->status = 'borrowed';
          $book->save();
- 
+
          $message = "O empréstimo do livro {$book->titulo} foi registrado com sucesso!";
          return to_route('emprestimos.index')->with('success', $message);
 
@@ -69,7 +79,7 @@ class LoanController extends Controller
      {
          $loan = Loan::findOrFail($loanId);
          $loan->delete();
- 
+
          $message = "O empréstimo foi removido do sistema com sucesso.";
          return to_route('emprestimos.index')->with('success', $message);
      }

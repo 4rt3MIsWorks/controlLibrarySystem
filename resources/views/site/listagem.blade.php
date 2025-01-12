@@ -1,11 +1,11 @@
 @extends('layouts.layout')
 
-@section('title','Cadastros')
+@section('title','Listagem')
 @section('main')
 
     <div class="container secCadastro">
         <div class="cabecaSecao">
-            <h4 class="titulo text-white ">Seção de Cadastro!</h4>
+            <h4 class="titulo text-white ">Seção de Listagem!</h4>
             <p class="text-white subTitulo">Abaixo as opções:</p>
         </div>
         <div class=" cardContainer d-flex gap-5">
@@ -16,13 +16,12 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="alunos"> Realize o cadastro de novos alunos para uso dos recursos da biblioteca do Senhor
-                        Raimundo.</p>
+                    <p class="alunos"> Veja a lista de estudantes registrados em nossa biblioteca.</p>
 
                 </div>
 
                 <button class="btn align-items-center btnAlunos" type="button"
-                        onclick="window.open('{{ route('alunos.create') }}', '_self')">
+                        onclick="window.open('{{ route('alunos.index') }}', '_self')">
                     Ir para Alunos
                 </button>
             </div>
@@ -34,12 +33,12 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="autores"> Realize o cadastro de novos alunos para uso dos recursos da biblioteca do Senhor
-                        Raimundo.</p>
+                    <p class="autores"> Conheça os autores que deram vida às obras do nosso acervo.
+                        </p>
 
                 </div>
                 <button class="btn align-items-center btnAutores" type="button"
-                        onclick="window.open('{{route('autor.create')}}', '_self')">
+                        onclick="window.open('{{ route('autor.index') }}', '_self')">
                     Ir para Autores
                 </button>
             </div>
@@ -50,12 +49,12 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="livros"> Realize o cadastro de novos alunos para uso dos recursos da biblioteca do Senhor
-                        Raimundo.</p>
+                    <p class="livros">Explore o acervo completo de livros disponíveis na biblioteca do Senhor Raimundo.
+                        </p>
 
                 </div>
                 <button class="btn align-items-center btnLivros" type="button"
-                        onclick="window.open('{{ route('livros.create') }}', '_self')">
+                        onclick="window.open('{{ route('livros.index') }}', '_self')">
                     Ir para Livros
                 </button>
             </div>
@@ -66,16 +65,16 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="livros"> Realize o cadastro de novos alunos para uso dos recursos da biblioteca do Senhor
-                        Raimundo.</p>
+                    <p class="livros">  Acompanhe os empréstimos realizados e suas datas de devolução.</p>
 
                 </div>
                 <button class="btn align-items-center btnEmprestimos" type="button"
-                        onclick="window.open('loan.create ', '_self')">
-                    Ir para Livros
+                        onclick="window.open('{{ route('emprestimos.index') }}', '_self')">
+                    Ir para Emprestimos
                 </button>
             </div>
         </div>
     </div>
 
 @endsection
+

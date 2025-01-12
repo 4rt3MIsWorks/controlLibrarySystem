@@ -9,14 +9,12 @@ class Book extends Model
 {
     use HasFactory;
     protected $fillable = ['titulo', 'ano_publicacao', 'ISBN'];
-    public function student(){
-        return $this->belongsToMany(Student::class);
-    }
+
 
     public function author(){
-        return $this->belongsTo('App\Models\Author');
+        return $this->belongsTo('App\Models\Author', 'author_id');
     }
     public function loans(){
-        return $this->belongsTo('App\Models\Loan');
+        return $this->belongsTo('App\Models\Loan', );
     }
 }

@@ -2,11 +2,13 @@
 @import '../scss/components/header';
 @import '../scss/components/_footer.scss';
 @import '../scss/pages/_cadastroHome.scss';
+@import 'pages/formularios';
+@import 'pages/tabelas';
 
-/*gerais*/
+
 body{
     font-family: 'Roboto', sans-serif;
-    background-color: #4a5568;
+    background-color: #4a5568 !important;
     height: 100%;
     margin: 0;
 }

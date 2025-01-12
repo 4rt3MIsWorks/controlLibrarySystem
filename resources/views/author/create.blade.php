@@ -1,31 +1,51 @@
-<x-layout title="Cadastro de Alunos">
-    <header class="bg-dark text-white py-4">
-        <div class="container d-flex justify-content-center align-items-center">
-            <h1>Biblioteca do Senhor Raimundo</h1>
-        </div>
-    </header>
+@extends('layouts.layout')
 
-    <div class="container py-5">
-        <form method="post" action="{{ route('autor.store') }}">
-            @csrf
-            <div class="row">
-                <div class="col">
-                    <label for="nome" class="form-label">Nome do Autor:</label>
-                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite o nome do estudante neste campo">
-                </div>
-                <div class="col">
-                    <label for="nacionalidade" class="form-label">Matricula do Estudante:</label>
-                    <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" placeholder="Digite a matricula do aluno neste campo">
-                </div>
-            </div>
-            <br>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary mt-2" style="font-size:20px">Cadastrar o Estudante</button>
-            </div>
-        </form>
+@section('title', 'Cadastro - Alunos')
+
+
+@section('apresentacao')
+    <div class="tituloC">
+        <h1 class="titulo">Bem-vindo à Página de Cadastro de Autores</h1>
+        <p class="cadastroText">Estamos felizes em ajudar você a cadastrar novos autores na biblioteca do Senhor Raimundo.</p>
+        <p class="cadastroText">Por favor, preencha o formulário abaixo com atenção. Todos os campos são obrigatórios para que possamos registrar os dados corretamente no sistema.</p>
     </div>
+@endsection
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Biblioteca do Senhor Raimundo | Todos os direitos reservados</p>
-    </footer>
-</x-layout>
+@section('main')
+    <div class="container secCadastro">
+        <div class="box">
+            <div class="img-box">
+                <img src="{{asset('images/livroFavicon.ico')}}">
+            </div>
+            <div class="form-box">
+                <h2>Cadastrar Autor</h2>
+
+                <form method="post" action="{{ route('autor.store') }}">
+                    @csrf
+                    <div class="input">
+                        <label for="nome"> Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite o nome do autor neste campo" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="nacionalidade">Nacionalidade</label>
+                        <input type="text" id="nacionalidade" name="nacionalidade" placeholder="Digite a nacionalidade neste campo" required>
+                    </div>
+
+
+
+
+                    <div class="input">
+                        <button type="submit" >Cadastrar o Autor</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
+
+
+
+
+

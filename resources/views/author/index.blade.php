@@ -1,53 +1,61 @@
-<x-layout title="Tela do Estudante">
-    @isset($message)
-        <script>
-            alert("{{ $message }}")
-        </script>
-    @endisset
-    <header class="bg-dark text-white py-4">
-        <div class="container d-flex justify-content-center align-items-center">
-            <h1>Biblioteca do Senhor Raimundo</h1>
-        </div>
-    </header>
+@extends('layouts.layout')
 
+@section('apresentacao')
+    <div class="tituloC">
+        <h1 class="titulo">Bem-vindo à Página de Listagem de Autores</h1>
+        <p class="cadastroText">Abaixo esta a lista de autores com obras cadastradas na biblioteca do Senhor Raimundo.</p>
+        <p class="cadastroText">Aqui voce pode deletar ou editar os dados de um autor.</p>
+    </div>
+@endsection
+@section('main')
     <main class="container py-5">
         <div>
-            <div class="d-flex justify-content-center">
-                <a href=" {{route('autor.create')}} " class="btn btn-primary mt-2" style="font-size:20px">Cadastrar um Novo Aluno</a>
-            </div>
-            <br>
-            <br>
-            <br>
-            <table class="table table-hover">
-                <thead>
-                <tr align="center" style="font-size:25px;" class="table-primary">
-                    <th scope="col">ID do Aluno</th>
-                    <th scope="col">Nome do Aluno</th>
-                    <th scope="col">Matricula do Aluno</th>
-                    <th scope="col">Ações</th>
-                </tr>
-                </thead>
-                <tbody align="center">
-                @foreach($authors as $author)
+            <div class="table-container">
+                <table class="styled-table">
+                    <thead>
                     <tr>
-                        <th scope="row">{{ $author->id }}</th>
-                        <td>{{ $author->nome }}</td>
-                        <td>{{ $author->nacionalidade }}</td>
-                        <td>
-                            <form method="POST" action="{{ route('autor.destroy', $author->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                            </form>
-                        </td>
+                        <th>ID do Autor</th>
+                        <th>Nome</th>
+                        <th>Nacionalidade</th>
+                        <th>Ações</th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    @foreach($authors as $author)
+                        <tr>
+                            <th scope="row">{{ $author->id }}</th>
+                            <td>{{ $author->nome }}</td>
+                            <td>{{ $author->nacionalidade }}</td>
+                            <td>
+                                <div class=" button-group">
+                                    <form method="POST" action="{{ route('autor.destroy', $author->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+
+                                    <form method="GET" action="{{ route('autor.edit', $author->id) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="button-container">
+                <a href="{{ route('autor.create') }}" class="btn-cadastro">Cadastrar Novo Autor</a>
+            </div>
         </div>
     </main>
+@endsection
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Biblioteca do Senhor Raimundo | Todos os direitos reservados</p>
-    </footer>
-</x-layout>
+
+
+

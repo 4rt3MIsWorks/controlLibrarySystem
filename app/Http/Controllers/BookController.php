@@ -4,42 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Author;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
 
-    public function authors()
+    public function author()
     {
-        return $this->belongsToMany(Author::class);
+        return $this->belongsTo(Author::class); //caralho de linha de filho da puta quem foi a desgraça que fez isso pqp
     }
 
     public function index()
     {
-        $books = Book::with('authors')->get();
+        $books = Book::with('author')->get();
         $message = session('success');
         return view('book.index', compact('books', 'message'));
     }
 
     public function create()
     {
-     return view('book.create');
+     $authors = Author::all();
+     return view('book.create', compact('authors'));
     }
 
     public function store(Request $request)
     {
-        /*
-        $request -> validate
-        ([
 
-        área para o request
-
-        ]);
-        */
 
 
         $books = Book::create($request->all());
-        $message = "O libro $books->titulo foi cadastrado com sucesso!";
+
+        $message = "O livro $books->titulo foi cadastrado com sucesso!";
         return to_route('book.index')->with('success', $message);
     }
 

@@ -24,8 +24,11 @@ class AuthorController extends Controller {
             'nacionalidade' => 'required|min:4|max:30'
         ]);
         $authors = Author::create($request->all());
-        $message = "O aluno $authors->nome foi cadastrado com sucesso!";
-        return to_route('autor.index')->with('success', $message);
+       // $message = "O aluno $authors->nome foi cadastrado com sucesso!";
+        return to_route('autor.index')->with('success');
+
+
+
     }
 
     public function destroy(Author $author)

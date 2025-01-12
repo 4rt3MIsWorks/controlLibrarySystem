@@ -18,29 +18,30 @@
         <div class="container " id="nav-container">
             <nav class="navbar navbar-expand-lg fixed-top ">
                 <img class="logo" src="{{asset("images/logo.png")}}" alt="">
-                <a href="#" class="titulo navbar-brand">
+                <a href=" {{route('home')}}" class="titulo navbar-brand">
                     Biblioteca do Senhor Raimundo
                 </a>
                 <div class=" collapse navbar-collapse justify-content-end" id="navbar-links">
                     <div class="navbar-nav">
-                        <a href="#"
+                        <a href="{{ route('home')  }}"
                            class="nav-item nav-link {{ (Route::current()->getName() === 'teste' ? 'active' : '') }}"
                            id="home-menu">Home</a>
-                        <a href="{{ route('site.cadastro')  }}"
-                           class="nav-item nav-link {{ (Route::current()->getName() === 'site.cadastro' ? 'active' : '') }}"
+                        <a href="{{ route('cadastro')  }}"
+                           class="nav-item nav-link {{ (Route::current()->getName() === 'cadastro' ? 'active' : '') }}"
                            id="cadastro-menu">Cadastro</a>
-                        <a href="#"
-                           class="nav-item nav-link {{ (Route::current()->getName() === 'site.listagem' ? 'active' : '') }}"
+                        <a href="{{ route('listagem')  }}"
+                           class="nav-item nav-link {{ (Route::current()->getName() === 'listagem' ? 'active' : '') }}"
                            id="listagem-menu">Listagem</a>
-                        <a href="#"
-                           class="nav-item nav-link {{ (Route::current()->getName() === 'site.sobre' ? 'active' : '') }}"
-                           id="sobre-menu">Emprestimos</a>
+                        <a href="{{ route('emprestimos.index')  }}"
+                           class="nav-item nav-link {{ (Route::current()->getName() === 'emprestimos.index' ? 'active' : '') }}"
+                           id="emprestimo-menu">Emprestimos</a>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-
+    @section('apresentacao')
+    @show
 
     @section('main')
     @show
@@ -53,10 +54,10 @@
                     <span class="mb-3 mb-md-0 text-white fs-6">&copy; 2024 Roberto, Inc</span>
                 </div>
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-white" href="#"><i class="fa-brands fa-twitter fa-2x"></i></a></li>
-                    <li class="ms-3"><a class="text-white" href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                    <li class="ms-3"><a class="text-white" href="https://www.x.com" target="_blank"><i class="fa-brands fa-twitter fa-2x"></i></a></li>
+                    <li class="ms-3"><a class="text-white" href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
                     </li>
-                    <li class="ms-3"><a class="text-white" href="#"><i class="fa-brands fa-facebook fa-2x"></i></a></li>
+                    <li class="ms-3"><a class="text-white" href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook fa-2x"></i></a></li>
                 </ul>
             </div>
         </div>
