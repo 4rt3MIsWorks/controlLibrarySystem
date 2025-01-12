@@ -39,23 +39,22 @@ class BookController extends Controller
     }
 
 
-    public function edit($isbn)//utilizei como primary key//
-    {
-        return view('livros.edit');
+    public function edit($id){//utilizei como primary key//
+        $book = Book::find($id);
+        $authors = Author::all();
+        $auth = Author::find($book->author_id);
+        return view('book.edit', compact('book', 'auth', 'authors'));
     }
 
-    public function update(Request $request, Books $books)
-    {
-            /*
-            $request -> validate
-            ([
-
-            área para o request
-
-            ]);
-            */
-        $books -> update($request->all());
-        $message = "O livro $books->titulo foi editado com sucesso!";
+    public function update(Request $request, $id) {
+        $request -> validate([
+            'titulo' => 'required',
+            'ano_publicacao' => 'required',
+            'ISBN' => 'required',
+        ]);
+        $book = Book::find($id);
+        $book -> update($request->all());
+        $message = "O livro $book->titulo foi editado com sucesso!";
         return to_route('livros.index')->with('success', $message);
     }
 

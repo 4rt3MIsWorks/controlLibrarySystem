@@ -33,17 +33,6 @@
                             <td>{{ $loan->student->nome}}</td>
                             <td>{{ $loan->books->titulo}}</td>
                             <td>{{ $loan->data_emprestimo}}</td>
-<<<<<<< HEAD
-                            <td>{{ $loan->data_devolucao}}</td>
-                            @if( $loan->status === 0 )
-                                {
-                                <td>Emprestado</td>
-                                }
-                            @else
-                                {
-                                <td>Devolvido</td>
-                                }
-=======
                             @if( $loan->data_devolucao === 0 )
                                 <td><hr style="color:black; border-width: 7px"></td>
                             @else
@@ -53,7 +42,6 @@
                                 <td>Emprestado</td>
                             @else
                                 <td>Devolvido</td>
->>>>>>> 656721866ce866b43d4c9feef235a39b5ddbc6c5
                             @endif
                             <td>
                                 <div class=" button-group">
@@ -79,16 +67,8 @@
                 </table>
             </div>
             <div class="button-container">
-<<<<<<< HEAD
-                <a href="{{ route('emprestimos.create') }}" class="btn-cadastro">Cadastrar Novo Livro</a>
-=======
                 <a href="{{ route('emprestimos.create') }}" class="btn-cadastro">Cadastrar um novo Empréstimo</a>
->>>>>>> 656721866ce866b43d4c9feef235a39b5ddbc6c5
             </div>
         </div>
     </main>
 @endsection
-
-
-
-

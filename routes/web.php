@@ -19,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-    Route::get('/', function () {
-        return view('site.home');
-    })->name('home');
+
 
     Route::get('/cadastro', function () {
         return view('site.cadastro');
@@ -30,11 +28,6 @@ use Illuminate\Support\Facades\Route;
     Route::get('/listagem', function () {
         return view('site.listagem');
     })->name('listagem');
-
-    Route::get('/pao', function () {
-    return view('loan.index');
-        })->name('pao');
-
 
 Route::resource('autor', AuthorController::class);
 Route::resource('livros', BookController::class);

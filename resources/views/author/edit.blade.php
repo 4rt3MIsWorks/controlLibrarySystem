@@ -5,8 +5,10 @@
 
 @section('apresentacao')
     <div class="tituloC">
-        <h1 class="titulo">Bem-vindo à Página Edição de Autores</h1>
-        <p class="cadastroText">Por favor, preencha o formulário abaixo com atenção. Todos os campos são obrigatórios para que possamos registrar os dados corretamente no sistema.</p>
+        <br>
+        <h1 class="titulo text-center">Bem-vindo à Página Edição de Autores</h1>
+        <br>
+        <p class="cadastroText text-center">Por favor, preencha o formulário abaixo com atenção. Todos os campos são obrigatórios para que possamos registrar os dados corretamente no sistema.</p>
     </div>
 @endsection
 
@@ -17,7 +19,7 @@
                 <img src="{{asset('images/livroFavicon.ico')}}">
             </div>
             <div class="form-box">
-                <h2>Cadastrar Autor</h2>
+                <h2>Editar o Autor</h2>
 
                 <form method="post" action="{{ route('autor.update', $author->id) }}">
                     @csrf

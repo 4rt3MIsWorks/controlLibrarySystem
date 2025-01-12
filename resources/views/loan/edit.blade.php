@@ -5,9 +5,10 @@
 
 @section('apresentacao')
     <div class="tituloC">
-        <h1 class="titulo">Bem-vindo à Página de Edição de Emprestimos</h1>
         <br>
-        <p class="cadastroText">Por favor, preencha o formulário abaixo com atenção. Todos os campos são obrigatórios para que possamos registrar os dados corretamente no sistema.</p>
+        <h1 class="titulo text-center">Bem-vindo à Página de Edição de Emprestimos</h1>
+        <br>
+        <p class="cadastroText text-center">Por favor, preencha o formulário abaixo com atenção. Todos os campos são obrigatórios para que possamos registrar os dados corretamente no sistema.</p>
     </div>
 @endsection
 
@@ -57,7 +58,15 @@
                     </div>
 
                     <div class="input">
-                        <button type="submit">Efetuar Empréstimo</button>
+                        <label for="status">Status do Emprestimo</label>
+                        <select id="status" name="status" required>
+                            <option value="0">Emprestado</option>
+                            <option value="1">Devolvido</option>
+                        </select>
+                    </div>
+
+                    <div class="input">
+                        <button type="submit">Editar o Empréstimo</button>
                     </div>
 
                 </form>

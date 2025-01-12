@@ -19,7 +19,7 @@
             <nav class="navbar navbar-expand-lg fixed-top ">
                 <div class="navbar-logo">
                     <img class="logo" src="{{asset("images/logo.png")}}" alt="">
-                    <a href=" {{route('home')}}" class="titulo navbar-brand">
+                    <a href=" {{ view('index') }}" class="titulo navbar-brand">
                         Biblioteca do Senhor Raimundo
                     </a>
                 </div>
