@@ -20,6 +20,7 @@
                         <th>Data Emprestimo</th>
                         <th>Data Devolução</th>
                         <th>Status</th>
+                        <th>Ações</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,20 +31,40 @@
                             <td>{{ $loan->books->titulo}}</td>
                             <td>{{ $loan->data_emprestimo}}</td>
                             <td>{{ $loan->data_devolucao}}</td>
-                            @if( $loan->status === 0 ){
+                            @if( $loan->status === 0 )
+                                {
                                 <td>Emprestado</td>
-                            }
-                            @else {
+                                }
+                            @else
+                                {
                                 <td>Devolvido</td>
-                            }
+                                }
                             @endif
+                            <td>
+                                <div class=" button-group">
+                                    <form method="POST" action="{{ route('emprestimos.destroy', $loan->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+
+                                    <form method="GET" action="{{ route('emprestimos.edit', $loan->id) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="button-container">
-                <a href="{{ route('autor.create') }}" class="btn-cadastro">Cadastrar Novo Livro</a>
+                <a href="{{ route('emprestimos.create') }}" class="btn-cadastro">Cadastrar Novo Livro</a>
             </div>
         </div>
     </main>

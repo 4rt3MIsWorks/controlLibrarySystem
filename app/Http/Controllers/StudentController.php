@@ -26,31 +26,30 @@ class StudentController extends Controller {
         return to_route('alunos.index')->with('success', $message);
     }
 
-    public function destroy($studentId) {
-        $student = Student::find($studentId);
+    public function destroy($id) {
+        $student = Student::find($id);
         $student->delete();
         $message = "O aluno $student->nome foi removido do sistema com sucesso!";
         return to_route('alunos.index')->with('success', $message);
     }
 
-    public function edit($matricula)
+    public function edit($id)
     {
-        return view('student.edit');
+        $student = Student::find($id);
+        return view('student.edit', compact('student'));
     }
 
-    public function update(Request $request, Student $student)
+    public function update(Request $request,  $id)
     {
-        /*
-        $request -> validate
-        ([
+        $request -> validate([
 
-        área para o request
-
+            'nome' => 'required|min:4|max:30',
+            'matricula' => 'required'
         ]);
-        */
+        $student = Student::find($id);
         $student -> update($request->all());
         $message = "O aluno $student->nome foi editado com sucesso!";
-        return to_route('student.index')->with('success', $message);
+        return to_route('alunos.index')->with('success', $message);
     }
 
 }

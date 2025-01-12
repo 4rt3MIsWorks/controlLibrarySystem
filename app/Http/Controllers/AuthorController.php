@@ -38,24 +38,22 @@ class AuthorController extends Controller {
         return to_route('autor.index')->with('success', $message);
     }
 
-    public function edit($nome)//primary kew do autor //
+    public function edit($id)//primary kew do autor //
     {
-        return view('author.edit');
+        $author = Author::find($id);
+        return view('author.edit', compact('author'));
     }
 
-    public function update(Request $request, Author $author)
+    public function update(Request $request, $id)
     {
-        /*
-        $request -> validate
-        ([
-
-        área para o request
-
+        $request -> validate([
+            'nome' => 'required|min:4|max:30',
+            'nacionalidade' => 'required|min:4|max:30'
         ]);
-        */
+        $author = Author::find($id);
         $author -> update($request->all());
         $message = "O autor $author->nome foi editado com sucesso!";
-        return to_route('author.index')->with('success', $message);
+        return to_route('autor.index')->with('success', $message);
     }
 
 }

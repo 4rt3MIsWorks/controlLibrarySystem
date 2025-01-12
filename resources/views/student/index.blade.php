@@ -50,7 +50,7 @@
                 </table>
             </div>
             <div class="button-container">
-                <a href="{{ route('alunos.create') }}" class="btn-cadastro">Cadastrar Novo Estudante</a>
+                <a href="{{ route('alunos.create') }}" class="btn-cadastro">Cadastrar novo estudante</a>
             </div>
         </div>
     </main>

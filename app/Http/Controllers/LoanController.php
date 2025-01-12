@@ -48,22 +48,21 @@ class LoanController extends Controller
         return to_route('emprestimos.index')->with('success', $message);
 
     }
-    public function returnLoan($loanId){
-        $loan = Loan::findOrFail($loanId);
-        if ($loan->status !== 'active') {
-            return back()->with('error', 'Este empréstimo já foi devolvido ou está inativo.');
-        }
-        $loan->update([
-            'data_devolucao' => now(),
-            'status' => 'returned',
-        ]);
-         // Atualiza o status de novo
+    public function edit($id)
+    {
+        $students = Student::all();
+        $books =Book::all();
+        $loan = Loan::find($id);
+        return view('loan.edit', compact('loan', 'books', 'students'));
+    }
 
-        $book = Book::find($loan->book_id);
-        $book->status = 'available';
-        $book->save();
-        $message = "O empréstimo do livro {$book->titulo} foi marcado como devolvido.";
-        return to_route('emprestimos.index')->with('success', $message);
+    public function update(Request $request,  $id)
+    {
+
+        $loan = Loan::find($id);
+        $loan -> update($request->all());
+        $loan = "O aluno $loan->nome foi editado com sucesso!";
+        return to_route('emprestimos.index')->with('success');
     }
 
      // Exclui o empréstimo

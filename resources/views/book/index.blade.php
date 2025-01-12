@@ -52,7 +52,7 @@
                 </table>
             </div>
             <div class="button-container">
-                <a href="{{ route('autor.create') }}" class="btn-cadastro">Cadastrar Novo Livro</a>
+                <a href="{{ route('livros.create') }}" class="btn-cadastro">Cadastrar Novo Livro</a>
             </div>
         </div>
     </main>
