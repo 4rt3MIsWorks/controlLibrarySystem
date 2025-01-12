@@ -1,10 +1,13 @@
 @extends('layouts.layout')
 
 @section('apresentacao')
+    <br>
     <div class="tituloC">
-        <h1 class="titulo">Bem-vindo à Página de Listagem de Livros</h1>
-        <p class="cadastroText">Abaixo esta a lista de livros da biblioteca do Senhor Raimundo.</p>
-        <p class="cadastroText">Aqui voce pode deletar ou editar os dados de um livros.</p>
+        <br>
+        <h1 class="titulo text-center">Bem-vindo à Página de Listagem de Empréstimo</h1>
+        <br>
+        <p class="cadastroText text-center">Abaixo esta a lista de empréstimos da biblioteca do Senhor Raimundo.</p>
+        <p class="cadastroText text-center">Aqui voce pode deletar ou editar os dados de um empréstimo.</p>
     </div>
 @endsection
 @section('main')
@@ -29,13 +32,15 @@
                             <td>{{ $loan->student->nome}}</td>
                             <td>{{ $loan->books->titulo}}</td>
                             <td>{{ $loan->data_emprestimo}}</td>
-                            <td>{{ $loan->data_devolucao}}</td>
-                            @if( $loan->status === 0 ){
+                            @if( $loan->data_devolucao === 0 )
+                                <td><hr style="color:black; border-width: 7px"></td>
+                            @else
+                                <td>{{ $loan->data_devolucao}}</td>
+                            @endif
+                            @if( $loan->status === 0 )
                                 <td>Emprestado</td>
-                            }
-                            @else {
+                            @else
                                 <td>Devolvido</td>
-                            }
                             @endif
                         </tr>
                     @endforeach
@@ -43,7 +48,7 @@
                 </table>
             </div>
             <div class="button-container">
-                <a href="{{ route('autor.create') }}" class="btn-cadastro">Cadastrar Novo Livro</a>
+                <a href="{{ route('emprestimos.create') }}" class="btn-cadastro">Cadastrar um novo Empréstimo</a>
             </div>
         </div>
     </main>

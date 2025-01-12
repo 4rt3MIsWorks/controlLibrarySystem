@@ -2,9 +2,11 @@
 
 @section('apresentacao')
     <div class="tituloC">
-        <h1 class="titulo">Bem-vindo à Página de Listagem de Alunos</h1>
-        <p class="cadastroText">Abaixo esta a lista de alunos cadastrados na biblioteca do Senhor Raimundo.</p>
-        <p class="cadastroText">Aqui voce pode deletar ou editar os dados de um aluno.</p>
+        <br>
+        <h1 class="titulo text-center">Bem-vindo à Página de Listagem de Alunos</h1>
+        <br>
+        <p class="cadastroText text-center">Abaixo esta a lista de alunos cadastrados na biblioteca do Senhor Raimundo.</p>
+        <p class="cadastroText text-center">Aqui voce pode deletar ou editar os dados de um aluno.</p>
     </div>
 @endsection
 @section('main')
@@ -50,7 +52,7 @@
                 </table>
             </div>
             <div class="button-container">
-                <a href="{{ route('alunos.create') }}" class="btn-cadastro">Cadastrar Novo Estudante</a>
+                <a href="{{ route('alunos.create') }}" class="btn-cadastro">Cadastrar um novo Aluno</a>
             </div>
         </div>
     </main>

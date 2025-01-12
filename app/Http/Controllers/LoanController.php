@@ -38,10 +38,10 @@ class LoanController extends Controller
      public function store(Request $request){
         $request->merge([
             'status' => 0,
+            'data_devolucao' => 0,
         ]);
         $request->validate([
             'data_emprestimo' => 'required|date',
-            'data_devolucao' => 'required|date',
         ]);
         $loan = Loan::create($request->all());
         $message = "O empréstimo do livro $loan->id foi registrado com sucesso!";
@@ -57,7 +57,6 @@ class LoanController extends Controller
             'data_devolucao' => now(),
             'status' => 'returned',
         ]);
-         // Atualiza o status de novo
 
         $book = Book::find($loan->book_id);
         $book->status = 'available';
@@ -66,7 +65,6 @@ class LoanController extends Controller
         return to_route('emprestimos.index')->with('success', $message);
     }
 
-     // Exclui o empréstimo
      public function destroy($loanId)
      {
          $loan = Loan::findOrFail($loanId);

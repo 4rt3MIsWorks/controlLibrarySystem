@@ -5,9 +5,11 @@
 
 @section('apresentacao')
     <div class="tituloC">
-        <h1 class="titulo">Bem-vindo à Página de Cadastro de Livros</h1>
-        <p class="cadastroText">Estamos felizes em ajudar você a cadastrar novos livros na biblioteca do Senhor Raimundo.</p>
-        <p class="cadastroText">Por favor, preencha o formulário abaixo com atenção. Todos os campos são obrigatórios para que possamos registrar os dados corretamente no sistema.</p>
+        <br>
+        <h1 class="titulo text-center">Bem-vindo à Página de Cadastro de Livros</h1>
+        <br>
+        <p class="cadastroText text-center">Estamos felizes em ajudar você a cadastrar novos livros na biblioteca do Senhor Raimundo.</p>
+        <p class="cadastroText text-center">Por favor, preencha o formulário abaixo com atenção. Todos os campos são obrigatórios para que possamos registrar os dados corretamente no sistema.</p>
     </div>
 @endsection
 

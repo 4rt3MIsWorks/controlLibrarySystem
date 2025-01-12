@@ -4,6 +4,10 @@ header, .navbar {
     margin-bottom: 40px;
 }
 
+.navbar-logo {
+    padding-left: 25px
+}
+
 #nav-container {
     padding: 0;
 }
@@ -21,6 +25,10 @@ header, .navbar {
         color: #8d5528;
         border-bottom: 2px solid #ffffff;
     }
+}
+
+#navbar-links {
+    padding-right: 50px;
 }
 
 #navbar-links a {

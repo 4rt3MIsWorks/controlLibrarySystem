@@ -17,10 +17,12 @@
     <header>
         <div class="container " id="nav-container">
             <nav class="navbar navbar-expand-lg fixed-top ">
-                <img class="logo" src="{{asset("images/logo.png")}}" alt="">
-                <a href=" {{route('home')}}" class="titulo navbar-brand">
-                    Biblioteca do Senhor Raimundo
-                </a>
+                <div class="navbar-logo">
+                    <img class="logo" src="{{asset("images/logo.png")}}" alt="">
+                    <a href=" {{route('home')}}" class="titulo navbar-brand">
+                        Biblioteca do Senhor Raimundo
+                    </a>
+                </div>
                 <div class=" collapse navbar-collapse justify-content-end" id="navbar-links">
                     <div class="navbar-nav">
                         <a href="{{ route('home')  }}"
@@ -45,7 +47,7 @@
         @show
     </div>
     <footer class="footer mt-auto border-top">
-        <div class="container ">
+        <div class="container footer-content">
             <div class=" footert d-flex flex-wrap justify-content-between align-items-center ">
                 <div class="col-md-4 d-flex align-items-center">
                     <div><img class="logo-footer" src="{{asset("images/logobranco.png")}}" alt=""></div>

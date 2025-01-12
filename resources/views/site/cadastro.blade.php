@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="alunos"> Realize o cadastro de novos alunos para uso dos recursos da biblioteca do Senhor
+                    <p class="alunos"> Realize o cadastro de novos alunos para a utilização dos recursos da Biblioteca do Senhor
                         Raimundo.</p>
 
                 </div>
@@ -36,8 +36,7 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="autores"> Realize o cadastro de novos alunos para uso dos recursos da biblioteca do Senhor
-                        Raimundo.</p>
+                    <p class="autores"> Realize o cadastro de novos autores para a adição de novos conteudos na Biblioteca do Senhor Raimundo</p>
 
                 </div>
                 <button class="btn align-items-center btnAutores" type="button"
@@ -52,8 +51,7 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="livros"> Realize o cadastro de novos alunos para uso dos recursos da biblioteca do Senhor
-                        Raimundo.</p>
+                    <p class="livros"> Realize o cadastro de novos livros para a ampliação do acevo literário da biblioteca do Senhor Raimundo.</p>
 
                 </div>
                 <button class="btn align-items-center btnLivros" type="button"
@@ -68,12 +66,11 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="livros"> Realize o cadastro de novos alunos para uso dos recursos da biblioteca do Senhor
-                        Raimundo.</p>
+                    <p class="livros"> Realize o cadastro de novos empréstimos para a destinação dos recursos da Biblioteca do Senhor Raimundo.</p>
 
                 </div>
                 <button class="btn align-items-center btnEmprestimos" type="button"
-                        onclick="window.open('loan.create ', '_self')">
+                        onclick="window.open('{{ route('emprestimos.create') }} ', '_self')">
                     Ir para Empréstimos
                 </button>
             </div>
