@@ -2,9 +2,11 @@
 
 @section('apresentacao')
     <div class="tituloC">
-        <h1 class="titulo">Bem-vindo à Página de Listagem de Livros</h1>
-        <p class="cadastroText">Abaixo esta a lista de livros da biblioteca do Senhor Raimundo.</p>
-        <p class="cadastroText">Aqui voce pode deletar ou editar os dados de um livros.</p>
+        <br>
+        <h1 class="titulo text-center">Bem-vindo à Página de Listagem de Livros</h1>
+        <br>
+        <p class="cadastroText text-center">Abaixo esta a lista de livros da biblioteca do Senhor Raimundo.</p>
+        <p class="cadastroText text-center">Aqui voce pode deletar ou editar os dados de um livros.</p>
     </div>
 @endsection
 @section('main')

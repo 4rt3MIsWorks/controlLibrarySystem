@@ -38,22 +38,35 @@ class LoanController extends Controller
      public function store(Request $request){
         $request->merge([
             'status' => 0,
+            'data_devolucao' => 0,
         ]);
         $request->validate([
             'data_emprestimo' => 'required|date',
-            'data_devolucao' => 'required|date',
         ]);
         $loan = Loan::create($request->all());
         $message = "O empréstimo do livro $loan->id foi registrado com sucesso!";
         return to_route('emprestimos.index')->with('success', $message);
 
     }
+
     public function edit($id)
     {
         $students = Student::all();
         $books =Book::all();
         $loan = Loan::find($id);
         return view('loan.edit', compact('loan', 'books', 'students'));
+    }
+
+    public function returnLoan($loanId)
+    {
+        $loan = Loan::findOrFail($loanId);
+        if ($loan->status !== 'active') {
+            return back()->with('error', 'Este empréstimo já foi devolvido ou está inativo.');
+        }
+        $loan->update([
+            'data_devolucao' => now(),
+            'status' => 'returned',
+        ]);
     }
 
     public function update(Request $request,  $id)
@@ -65,7 +78,6 @@ class LoanController extends Controller
         return to_route('emprestimos.index')->with('success');
     }
 
-     // Exclui o empréstimo
      public function destroy($loanId)
      {
          $loan = Loan::findOrFail($loanId);

@@ -5,9 +5,11 @@
 
     <div class="container secCadastro">
         <div class="cabecaSecao">
-            <h4 class="titulo text-white ">Seção de Listagem!</h4>
-            <p class="text-white subTitulo">Abaixo as opções:</p>
+            <h4 class="titulo text-white text-center">Seção de Listagem</h4>
+            <p class="text-white subTitulo text-center">Abaixo as opções:</p>
         </div>
+        <br>
+        <br>
         <div class=" cardContainer d-flex gap-5">
             <div class="card p-5 w-75 d-flex cadastrar aluno">
                 <div class="cardImg ">
@@ -16,10 +18,8 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="alunos"> Veja a lista de estudantes registrados em nossa biblioteca.</p>
-
+                    <p class="alunos">Observe a lista de todos os alunos registrados no sistema da nossa biblioteca.</p>
                 </div>
-
                 <button class="btn align-items-center btnAlunos" type="button"
                         onclick="window.open('{{ route('alunos.index') }}', '_self')">
                     Ir para Alunos
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="cardText">
-                    <p class="livros">  Acompanhe os empréstimos realizados e suas datas de devolução.</p>
+                    <p class="livros">Acompanhe os empréstimos realizados, suas datas e seus status.</p>
 
                 </div>
                 <button class="btn align-items-center btnEmprestimos" type="button"
