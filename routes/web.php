@@ -21,16 +21,19 @@ use Illuminate\Support\Facades\Route;
 
 
 
+    Route::get('/', function () {
+        return view('site.home');
+    })->name('home');
     Route::get('/cadastro', function () {
         return view('site.cadastro');
     })->name('cadastro');
-
     Route::get('/listagem', function () {
         return view('site.listagem');
     })->name('listagem');
 
-Route::resource('autor', AuthorController::class);
-Route::resource('livros', BookController::class);
-Route::resource('alunos', StudentController::class);
-Route::resource('emprestimos', LoanController::class);
-Route::resource('biblioteca', LibraryController::class);
+
+    Route::resource('autor', AuthorController::class);
+    Route::resource('livros', BookController::class);
+    Route::resource('alunos', StudentController::class);
+    Route::resource('emprestimos', LoanController::class);
+    Route::resource('biblioteca', LibraryController::class);

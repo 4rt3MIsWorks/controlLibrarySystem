@@ -12,7 +12,7 @@ class BookController extends Controller
 
     public function author()
     {
-        return $this->belongsTo(Author::class); //caralho de linha de filho da puta quem foi a desgraça que fez isso pqp
+        return $this->belongsTo(Author::class);
     }
 
     public function index() {
@@ -39,7 +39,7 @@ class BookController extends Controller
     }
 
 
-    public function edit($id){//utilizei como primary key//
+    public function edit($id){
         $book = Book::find($id);
         $authors = Author::all();
         $auth = Author::find($book->author_id);
@@ -58,7 +58,7 @@ class BookController extends Controller
         return to_route('livros.index')->with('success', $message);
     }
 
-    public function destroy($id)//utilizei como primary key//
+    public function destroy($id)
     {
         $books = Book::find($id);
         $books -> delete();
